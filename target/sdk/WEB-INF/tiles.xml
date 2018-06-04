@@ -1,0 +1,128 @@
+<?xml version="1.0" encoding="UTF-8" ?>
+<!DOCTYPE tiles-definitions PUBLIC
+   "-//Apache Software Foundation//DTD Tiles Configuration 2.0//EN"
+   "http://tiles.apache.org/dtds/tiles-config_2_0.dtd">
+<tiles-definitions>
+	<definition name="basicLayout" template="/tiles/basicLayout.jsp">
+		<put-attribute name="headerScript"  value="/tiles/headerScript.jsp"/>
+		<put-attribute name="menu" value="/tiles/menu.jsp" />
+		<put-attribute name="body" value="" />
+		<put-attribute name="bodyScript" value="" />
+		<put-attribute name="copyRight" value="/tiles/copyRight.jsp" />
+	</definition>
+	<definition name="noMenuLayout" template="/tiles/noMenuLayout.jsp">
+		<put-attribute name="headerScript"  value="/tiles/noMenuHeaderScript.jsp"/>
+		<put-attribute name="bodyScript" value="" />
+		<put-attribute name="body" value="" />
+	</definition>
+	
+	<definition name="function.registered" extends="noMenuLayout">
+		<put-attribute name="body" value="/jsp/function/registered.jsp" />
+		<put-attribute name="bodyScript" value="/jsp/function/registeredScript.jsp" />
+	</definition>
+	<definition name="function.login" extends="noMenuLayout">
+		<put-attribute name="body" value="/jsp/function/login.jsp" />
+		<put-attribute name="bodyScript" value="/jsp/function/loginScript.jsp" />
+	</definition>
+	<definition name="function.forget" extends="noMenuLayout">
+		<put-attribute name="body" value="/jsp/function/forget.jsp" />
+		<put-attribute name="bodyScript" value="/jsp/function/forgetScript.jsp" />
+	</definition>
+	
+	<definition name="function.tracker.data" extends="basicLayout">
+		<put-attribute name="body" value="/jsp/function/trackerData.jsp" />
+		<put-attribute name="bodyScript" value="/jsp/function/trackerDataScript.jsp" />
+	</definition>
+	
+	<definition name="function.analysis" extends="basicLayout">
+		<put-attribute name="body" value="/jsp/function/analysis.jsp" />
+		<put-attribute name="bodyScript" value="/jsp/function/analysisScript.jsp" />
+	</definition>
+	
+	<definition name="function.member" extends="basicLayout">
+		<put-attribute name="body" value="/jsp/function/member.jsp" />
+		<put-attribute name="bodyScript" value="/jsp/function/memberScript.jsp" />
+	</definition>
+	
+	<definition name="function.user" extends="basicLayout">
+		<put-attribute name="body" value="/jsp/function/user.jsp" />
+		<put-attribute name="bodyScript" value="/jsp/function/userScript.jsp" />
+	</definition>
+	
+	<definition name="function.user.audit" extends="basicLayout">
+		<put-attribute name="body" value="/jsp/function/userAudit.jsp" />
+		<put-attribute name="bodyScript" value="/jsp/function/userAuditScript.jsp" />
+	</definition>
+	
+	<definition name="function.user.del" extends="basicLayout">
+		<put-attribute name="body" value="/jsp/function/userDel.jsp" />
+		<put-attribute name="bodyScript" value="/jsp/function/userDelScript.jsp" />
+	</definition>
+	
+	<definition name="function.user.modify" extends="basicLayout">
+		<put-attribute name="body" value="/jsp/function/userModify.jsp" />
+		<put-attribute name="bodyScript" value="/jsp/function/userModifyScript.jsp" />
+	</definition>
+	
+	<definition name="function.user.sdk" extends="basicLayout">
+		<put-attribute name="body" value="/jsp/function/userSdk.jsp" />
+		<put-attribute name="bodyScript" value="/jsp/function/userSdkScript.jsp" />
+	</definition>
+	
+	<definition name="function.app.registered" extends="basicLayout">
+		<put-attribute name="body" value="/jsp/function/appRegistered.jsp" />
+		<put-attribute name="bodyScript" value="/jsp/function/appRegisteredScript.jsp" />
+	</definition>
+	
+	<definition name="function.app.list.application" extends="basicLayout">
+		<put-attribute name="body" value="/jsp/function/appListApplication.jsp" />
+		<put-attribute name="bodyScript" value="/jsp/function/appListApplicationScript.jsp" />
+	</definition>
+	
+	<definition name="function.app.modify" extends="basicLayout">
+		<put-attribute name="body" value="/jsp/function/appModify.jsp" />
+		<put-attribute name="bodyScript" value="/jsp/function/appModifyScript.jsp" />
+	</definition>
+	
+	<definition name="function.dashboard" extends="basicLayout">
+		<put-attribute name="body" value="/jsp/function/dashboard.jsp" />
+		<put-attribute name="bodyScript" value="/jsp/function/dashboardScript.jsp" />
+	</definition>
+	
+	<definition name="function.sdk" extends="basicLayout">
+		<put-attribute name="body" value="/jsp/function/sdk.jsp" />
+		<put-attribute name="bodyScript" value="/jsp/function/sdkScript.jsp" />
+	</definition>
+	
+	<definition name="function.app.dashboard" extends="basicLayout">
+		<put-attribute name="body" value="/jsp/function/appDashboard.jsp" />
+		<put-attribute name="bodyScript" value="/jsp/function/appDashboardScript.jsp" />
+	</definition>
+	
+	<definition name="function.app.dashboard.detail" extends="basicLayout">
+		<put-attribute name="body" value="/jsp/function/appDashboardDetail.jsp" />
+		<put-attribute name="bodyScript" value="/jsp/function/appDashboardDetailScript.jsp" />
+	</definition>
+	
+	<definition name="function.reset.password" extends="noMenuLayout">
+		<put-attribute name="body" value="/jsp/function/resetPassword.jsp" />
+		<put-attribute name="bodyScript" value="/jsp/function/resetPasswordScript.jsp" />
+	</definition>
+	<definition name="function.log" extends="basicLayout">
+		<put-attribute name="body" value="/jsp/function/log.jsp" />
+		<put-attribute name="bodyScript" value="/jsp/function/logScript.jsp" />
+	</definition>
+	<definition name="function.privacy" extends="basicLayout">
+		<put-attribute name="body" value="/jsp/function/privacy.jsp" />
+	</definition>
+	
+	<definition name="function.app.dashboard.detail.cross" extends="basicLayout">
+		<put-attribute name="body" value="/jsp/function/appDashboardDetailCross.jsp" />
+		<put-attribute name="bodyScript" value="/jsp/function/appDashboardDetailScript.jsp" />
+	</definition>
+	
+	<definition name="function.app.dashboard.detail.prefer" extends="basicLayout">
+		<put-attribute name="body" value="/jsp/function/appDashboardDetailPrefer.jsp" />
+		<put-attribute name="bodyScript" value="/jsp/function/appDashboardDetailScript.jsp" />
+	</definition>
+</tiles-definitions>

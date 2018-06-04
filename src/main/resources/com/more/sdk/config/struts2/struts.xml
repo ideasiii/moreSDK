@@ -1,0 +1,62 @@
+<!DOCTYPE struts PUBLIC
+    "-//Apache Software Foundation//DTD Struts Configuration 2.5//EN"
+    "http://struts.apache.org/dtds/struts-2.5.dtd">
+
+<struts>
+	<!-- 開發模式，更多詳細的錯誤訊息 -->
+	<constant name="struts.devMode" value="false" />
+	
+	<!-- 當struts.xml修改時候，不需要重新啟動Server （devMode也需打開才會生效） -->
+	<constant name="struts.configuration.xml.reload" value="true" />
+	
+	<!-- default會使用 struts2-core.jar中的 template/xhtml的freemarker去產生畫面 -->
+	<constant name="struts.ui.theme" value="simple" />
+
+	<!-- 透過Spring控管ObjectFactory -->
+	<constant name="struts.objectFactory" value="spring" />
+	
+	<!-- JSP 裡 s tage 有用到java static method 需打開此設定-->
+	<constant name="struts.ognl.allowStaticMethodAccess" value="true"/>
+	 
+	<!-- 有用到servlet 一定要打開此註解，或則想要自己改副檔名也可以設定 -->
+ 	<constant name="struts.action.extension" value="action,do,php" />
+ 	
+ 	<constant name="struts.serve.static" value="true" />
+ 	
+	<constant name="struts.serve.static.browserCache" value="false" />
+	
+	<constant name="struts.multipart.maxSize" value="20971520" />
+	
+	<constant name="struts.custom.i18n.resources" value="language"/>
+	<constant name="struts.i18n.encoding" value="UTF-8" />
+	<package name="super-default" abstract="true" extends="struts-default">
+        <result-types>
+			<result-type name="tiles" class="org.apache.struts2.views.tiles.TilesResult" />
+			<result-type name="json" class="org.apache.struts2.json.JSONResult" />
+		</result-types>
+		<interceptors>
+			<interceptor name="authInterceptor" class="com.more.sdk.interceptor.AuthInterceptor"  >
+			</interceptor>
+			<interceptor-stack name="authStack">
+                <interceptor-ref name="authInterceptor" />
+                <interceptor-ref name="defaultStack" />
+            </interceptor-stack>
+		</interceptors>
+		<global-results>
+			<result name="sessionOut" type="redirectAction">
+				<param name="namespace">/function</param>
+				<param name="actionName">login</param>
+			</result>
+			<result name="dashboard" type="redirectAction">
+				<param name="namespace">/function</param>
+				<param name="actionName">dashboard</param>
+			</result>
+	        <result name="error" type="dispatcher">/commons/error500.jsp</result>
+	    </global-results>
+		
+		<!-- <global-exception-mappings>
+			<exception-mapping exception="java.lang.Exception" result="error" />
+		</global-exception-mappings> -->
+	</package>
+	
+</struts>

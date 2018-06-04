@@ -1,0 +1,81 @@
+<?xml version="1.0" encoding="UTF-8" ?>
+<!DOCTYPE mapper PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN" "http://mybatis.org/dtd/mybatis-3-mapper.dtd" >
+<mapper namespace="com.more.sdk.entity.dao.PermissionDefinitionMapper">
+	<resultMap id="BaseResultMap" type="com.more.sdk.entity.PermissionDefinition">
+		<id column="member_level" property="memberLevel" jdbcType="INTEGER" />
+		<result column="permission" property="permission" jdbcType="VARCHAR" />
+		<result column="create_date" property="createDate" jdbcType="TIMESTAMP" />
+	</resultMap>
+	<sql id="Base_Column_List">
+		member_level, permission, create_date
+	</sql>
+	<select id="selectByPrimaryKey" resultMap="BaseResultMap"
+		parameterType="java.lang.Integer">
+		select
+		<include refid="Base_Column_List" />
+		from permission_definition
+		where member_level = #{memberLevel,jdbcType=INTEGER}
+	</select>
+	<select id="selectAll" resultMap="BaseResultMap">
+		select
+		<include refid="Base_Column_List" />
+		from more_member.permission_definition
+		order by member_level
+	</select>
+	
+	<delete id="deleteByPrimaryKey" parameterType="java.lang.Integer">
+		delete from permission_definition
+		where member_level = #{memberLevel,jdbcType=INTEGER}
+	</delete>
+	<insert id="insert" parameterType="com.more.sdk.entity.PermissionDefinition">
+		insert into permission_definition (member_level, permission,
+		create_date
+		)
+		values (#{memberLevel,jdbcType=INTEGER}, #{permission,jdbcType=VARCHAR},
+		#{createDate,jdbcType=TIMESTAMP}
+		)
+	</insert>
+	<insert id="insertSelective" parameterType="com.more.sdk.entity.PermissionDefinition">
+		insert into permission_definition
+		<trim prefix="(" suffix=")" suffixOverrides=",">
+			<if test="memberLevel != null">
+				member_level,
+			</if>
+			<if test="permission != null">
+				permission,
+			</if>
+			<if test="createDate != null">
+				create_date,
+			</if>
+		</trim>
+		<trim prefix="values (" suffix=")" suffixOverrides=",">
+			<if test="memberLevel != null">
+				#{memberLevel,jdbcType=INTEGER},
+			</if>
+			<if test="permission != null">
+				#{permission,jdbcType=VARCHAR},
+			</if>
+			<if test="createDate != null">
+				#{createDate,jdbcType=TIMESTAMP},
+			</if>
+		</trim>
+	</insert>
+	<update id="updateByPrimaryKeySelective" parameterType="com.more.sdk.entity.PermissionDefinition">
+		update permission_definition
+		<set>
+			<if test="permission != null">
+				permission = #{permission,jdbcType=VARCHAR},
+			</if>
+			<if test="createDate != null">
+				create_date = #{createDate,jdbcType=TIMESTAMP},
+			</if>
+		</set>
+		where member_level = #{memberLevel,jdbcType=INTEGER}
+	</update>
+	<update id="updateByPrimaryKey" parameterType="com.more.sdk.entity.PermissionDefinition">
+		update permission_definition
+		set permission = #{permission,jdbcType=VARCHAR},
+		create_date = #{createDate,jdbcType=TIMESTAMP}
+		where member_level = #{memberLevel,jdbcType=INTEGER}
+	</update>
+</mapper>

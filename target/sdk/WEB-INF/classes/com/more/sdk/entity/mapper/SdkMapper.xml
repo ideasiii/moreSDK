@@ -1,0 +1,180 @@
+<?xml version="1.0" encoding="UTF-8" ?>
+<!DOCTYPE mapper PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN" "http://mybatis.org/dtd/mybatis-3-mapper.dtd" >
+<mapper namespace="com.more.sdk.entity.dao.SdkMapper">
+	<resultMap id="BaseResultMap" type="com.more.sdk.entity.Sdk">
+		<id column="sdk_id" property="sdkId" jdbcType="INTEGER" />
+		<result column="sdk_os" property="sdkOs" jdbcType="VARCHAR" />
+		<result column="sdk_owner" property="sdkOwner" jdbcType="VARCHAR" />
+		<result column="sdk_name" property="sdkName" jdbcType="VARCHAR" />
+		<result column="sdk_desc" property="sdkDesc" jdbcType="VARCHAR" />
+		<result column="sdk_file" property="sdkFile" jdbcType="VARCHAR" />
+		<result column="sdk_doc" property="sdkDoc" jdbcType="VARCHAR" />
+		<result column="sdk_icon" property="sdkIcon" jdbcType="VARCHAR" />
+		<result column="sdk_state" property="sdkState" jdbcType="INTEGER" />
+		<result column="create_date" property="createDate" jdbcType="TIMESTAMP" />
+	</resultMap>
+	<sql id="Base_Column_List">
+		sdk_id, sdk_os, sdk_owner, sdk_name, sdk_desc, sdk_file, sdk_doc, sdk_icon,
+		sdk_state,
+		create_date
+	</sql>
+	<select id="selectByPrimaryKey" resultMap="BaseResultMap" parameterType="java.lang.Integer">
+		select
+		<include refid="Base_Column_List" />
+		from more.sdk
+		where sdk_id = #{sdkId,jdbcType=INTEGER}
+	</select>
+	<select id="selectAll" resultMap="BaseResultMap" >
+		select
+		<include refid="Base_Column_List" />
+		from more.sdk
+	</select>
+	<select id="selectByGroupId" resultMap="BaseResultMap" parameterType="java.lang.Integer">
+		select
+		<include refid="Base_Column_List" />
+		from more.sdk
+		where sdk_id in (
+			select node_id from more.sdk_group 
+			where group_id = #{groupId,jdbcType=INTEGER}
+			and node_type = 1
+		) 
+	</select>
+	
+	<select id="selectBySdkState" resultMap="BaseResultMap" parameterType="java.lang.Integer">
+		select
+		<include refid="Base_Column_List" />
+		from more.sdk
+		where sdk_state = #{sdkState,jdbcType=INTEGER} 
+	</select>
+	
+	
+	<delete id="deleteByPrimaryKey" parameterType="java.lang.Integer">
+		delete from sdk
+		where sdk_id = #{sdkId,jdbcType=INTEGER}
+	</delete>
+	<insert id="insert" parameterType="com.more.sdk.entity.Sdk">
+		insert into sdk (sdk_id, sdk_os, sdk_owner,
+		sdk_name, sdk_desc, sdk_file,
+		sdk_doc, sdk_icon, sdk_state,
+		create_date)
+		values (#{sdkId,jdbcType=INTEGER}, #{sdkOs,jdbcType=VARCHAR},
+		#{sdkOwner,jdbcType=VARCHAR},
+		#{sdkName,jdbcType=VARCHAR}, #{sdkDesc,jdbcType=VARCHAR}, #{sdkFile,jdbcType=VARCHAR},
+		#{sdkDoc,jdbcType=VARCHAR}, #{sdkIcon,jdbcType=VARCHAR},
+		#{sdkState,jdbcType=INTEGER},
+		#{createDate,jdbcType=TIMESTAMP})
+	</insert>
+	<insert id="insertSelective" parameterType="com.more.sdk.entity.Sdk">
+		insert into sdk
+		<trim prefix="(" suffix=")" suffixOverrides=",">
+			<if test="sdkId != null">
+				sdk_id,
+			</if>
+			<if test="sdkOs != null">
+				sdk_os,
+			</if>
+			<if test="sdkOwner != null">
+				sdk_owner,
+			</if>
+			<if test="sdkName != null">
+				sdk_name,
+			</if>
+			<if test="sdkDesc != null">
+				sdk_desc,
+			</if>
+			<if test="sdkFile != null">
+				sdk_file,
+			</if>
+			<if test="sdkDoc != null">
+				sdk_doc,
+			</if>
+			<if test="sdkIcon != null">
+				sdk_icon,
+			</if>
+			<if test="sdkState != null">
+				sdk_state,
+			</if>
+			<if test="createDate != null">
+				create_date,
+			</if>
+		</trim>
+		<trim prefix="values (" suffix=")" suffixOverrides=",">
+			<if test="sdkId != null">
+				#{sdkId,jdbcType=INTEGER},
+			</if>
+			<if test="sdkOs != null">
+				#{sdkOs,jdbcType=VARCHAR},
+			</if>
+			<if test="sdkOwner != null">
+				#{sdkOwner,jdbcType=VARCHAR},
+			</if>
+			<if test="sdkName != null">
+				#{sdkName,jdbcType=VARCHAR},
+			</if>
+			<if test="sdkDesc != null">
+				#{sdkDesc,jdbcType=VARCHAR},
+			</if>
+			<if test="sdkFile != null">
+				#{sdkFile,jdbcType=VARCHAR},
+			</if>
+			<if test="sdkDoc != null">
+				#{sdkDoc,jdbcType=VARCHAR},
+			</if>
+			<if test="sdkIcon != null">
+				#{sdkIcon,jdbcType=VARCHAR},
+			</if>
+			<if test="sdkState != null">
+				#{sdkState,jdbcType=INTEGER},
+			</if>
+			<if test="createDate != null">
+				#{createDate,jdbcType=TIMESTAMP},
+			</if>
+		</trim>
+	</insert>
+	<update id="updateByPrimaryKeySelective" parameterType="com.more.sdk.entity.Sdk">
+		update sdk
+		<set>
+			<if test="sdkOs != null">
+				sdk_os = #{sdkOs,jdbcType=VARCHAR},
+			</if>
+			<if test="sdkOwner != null">
+				sdk_owner = #{sdkOwner,jdbcType=VARCHAR},
+			</if>
+			<if test="sdkName != null">
+				sdk_name = #{sdkName,jdbcType=VARCHAR},
+			</if>
+			<if test="sdkDesc != null">
+				sdk_desc = #{sdkDesc,jdbcType=VARCHAR},
+			</if>
+			<if test="sdkFile != null">
+				sdk_file = #{sdkFile,jdbcType=VARCHAR},
+			</if>
+			<if test="sdkDoc != null">
+				sdk_doc = #{sdkDoc,jdbcType=VARCHAR},
+			</if>
+			<if test="sdkIcon != null">
+				sdk_icon = #{sdkIcon,jdbcType=VARCHAR},
+			</if>
+			<if test="sdkState != null">
+				sdk_state = #{sdkState,jdbcType=INTEGER},
+			</if>
+			<if test="createDate != null">
+				create_date = #{createDate,jdbcType=TIMESTAMP},
+			</if>
+		</set>
+		where sdk_id = #{sdkId,jdbcType=INTEGER}
+	</update>
+	<update id="updateByPrimaryKey" parameterType="com.more.sdk.entity.Sdk">
+		update sdk
+		set sdk_os = #{sdkOs,jdbcType=VARCHAR},
+		sdk_owner = #{sdkOwner,jdbcType=VARCHAR},
+		sdk_name = #{sdkName,jdbcType=VARCHAR},
+		sdk_desc = #{sdkDesc,jdbcType=VARCHAR},
+		sdk_file = #{sdkFile,jdbcType=VARCHAR},
+		sdk_doc = #{sdkDoc,jdbcType=VARCHAR},
+		sdk_icon = #{sdkIcon,jdbcType=VARCHAR},
+		sdk_state = #{sdkState,jdbcType=INTEGER},
+		create_date = #{createDate,jdbcType=TIMESTAMP}
+		where sdk_id = #{sdkId,jdbcType=INTEGER}
+	</update>
+</mapper>
