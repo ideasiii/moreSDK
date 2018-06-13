@@ -24,7 +24,7 @@ $(function() {
 		$("#endDate").val('<s:property value="endDate"/>');
 	</s:if>
 	
-	<s:if test="startDate != null && endDate != null && app != null">
+	<s:if test="startDate != null && endDate != null && app != null && columns.size() > 0">
 		dataTable = $('#dataTable').DataTable(getOption());
 	</s:if>
 	

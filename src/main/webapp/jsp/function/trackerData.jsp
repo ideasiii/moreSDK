@@ -21,7 +21,7 @@
 				</button>
 			</div>
 			
-			<s:if test="startDate != null && endDate != null && app != null">
+			<s:if test="startDate != null && endDate != null && app != null && columns.size() > 0">
 				<div class="date date1 fl" style="float:right;">
 					<button class="btn btn-primary" type="button" onclick="exportCsv();">
 						匯出

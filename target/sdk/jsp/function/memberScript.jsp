@@ -160,7 +160,7 @@ function resetPasswordForm(){
 	$.confirm({
 		title: '<s:text name="editConfirm" />!',
 		content: '確認重設密碼!',
-		confirmButton: '<s:text name="saveChanges"/>',
+		confirmButton: '<s:text name="confirm"/>',
 		confirmButtonClass: 'btn-info',
 		cancelButton: '<s:text name="cancel"/>',
 		cancelButtonClass: 'btn-danger',

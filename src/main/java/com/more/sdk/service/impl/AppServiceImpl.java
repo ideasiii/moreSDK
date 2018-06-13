@@ -141,7 +141,7 @@ public class AppServiceImpl implements AppService{
 			}
 		}
 		
-		app.setAppId(""+app.getMemberId()+"_"+now.getTime());
+		app.setAppId(now.getTime()+"");
 		app.setAgreeNo(appAgreeVersion);
 		app.setCreateDate(now);
 		app.setUpdateDate(now);

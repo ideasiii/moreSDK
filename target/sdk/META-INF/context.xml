@@ -2,12 +2,12 @@
 <Context>
 	<Resource name="jdbc/more" auth="Container" type="javax.sql.DataSource"
 		driverClassName="com.mysql.jdbc.Driver"
-		url="jdbc:mysql://127.0.0.1:3306?useUnicode=true&amp;characterEncoding=UTF-8"
-		username="nerdy" password="123456" maxWait="10000" maxIdle="30"
+		url="jdbc:mysql://localhost:3306?useUnicode=true&amp;characterEncoding=UTF-8"
+		username="more" password="ideas123!" maxWait="10000" maxIdle="30"
 		maxActive="100" />
-	<!-- <Resource name="jdbc/more_permission" auth="Container" type="javax.sql.DataSource"
+	<!-- <Resource name="jdbc/more" auth="Container" type="javax.sql.DataSource"
 		driverClassName="com.mysql.jdbc.Driver"
-		url="jdbc:mysql://127.0.0.1:3306/more_permission?useUnicode=true&amp;characterEncoding=UTF-8"
+		url="jdbc:mysql://127.0.0.1:3306?useUnicode=true&amp;characterEncoding=UTF-8"
 		username="nerdy" password="123456" maxWait="10000" maxIdle="30"
 		maxActive="100" /> -->
 </Context>

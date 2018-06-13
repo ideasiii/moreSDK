@@ -6,7 +6,7 @@
 	<head>
 	<meta charset="utf-8">
 	<meta>
-	<title>moreapi</title>
+	<title>MORE</title>
 	<meta name="viewport" content="width=device-width, initial-scale=1">
 	<!-- Place favicon.ico and apple-touch-icon.png in the root directory -->
 	<link rel="shortcut icon" href="<s:property value="contextPath"/>favicon.ico">
@@ -31,7 +31,7 @@
 		<a href="#" class="js-fh5co-nav-toggle fh5co-nav-toggle"><i></i></a>
 		<aside id="fh5co-aside" role="complementary" class="border js-fullheight">
 
-			<h1 id="fh5co-logo"><a href="index.html"><img src="<s:property value="contextPath"/>/images/more_logo1.png"></a></h1>
+			<h1 id="fh5co-logo"><a href="index.jsp"><img src="<s:property value="contextPath"/>/images/more_logo_white_board_sm.png"></a></h1>
 			<nav id="fh5co-main-menu" role="navigation">
 				<ul>
 					<li class="fh5co-active"><a href="<s:url />">Home</a></li>

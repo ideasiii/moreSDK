@@ -12,8 +12,8 @@ public class WebConfig implements WebApplicationInitializer {
 		servletContext.setInitParameter("contextClass", "org.springframework.web.context.support.AnnotationConfigWebApplicationContext");
 		AnnotationConfigWebApplicationContext rootContext = new AnnotationConfigWebApplicationContext();
 		rootContext.register(SpringConfig.class);
+		rootContext.setConfigLocation("com.more.sdk.config");
 		servletContext.addListener(new ContextLoaderListener(rootContext));
-
 	}
 
 	
